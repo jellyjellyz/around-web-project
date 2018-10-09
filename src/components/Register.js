@@ -25,7 +25,11 @@ class RegistrationForm extends React.Component {
                         password: values.password
                     })
                 }).then(
-                    (response) => { message.success(response); }, //后端返回一个string
+                    (response) => {
+                        console.log(this.props);
+                        message.success(response);
+                        this.props.history.push('/login');
+                    }, //后端返回一个string
                     (response) => { message.error(response.responseText); } // 后端返回一个error object
                 )
             }
